@@ -1,0 +1,218 @@
+/* PrintIt legal pages — shared styling.
+   No web fonts, no CDN, no scripts, no cookies. These pages load nothing from anywhere
+   except this stylesheet, which is served from the same place as the page itself.
+   Palette mirrors the app's own tokens so the pages read as the same product. */
+
+:root {
+  color-scheme: light dark;
+  --bg: #F4F5F7;
+  --surface: #FFFFFF;
+  --ink: #1A1A1A;
+  --muted: rgba(0, 0, 0, .58);
+  --border: rgba(0, 0, 0, .10);
+  --accent: #00A85A;
+  --accent-ink: #00160B;
+  --note-bg: #ECF8F1;
+  --warn: #C2410C;
+  --warn-bg: #FEF2E7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F1113;
+    --surface: #191C1F;
+    --ink: #EDEEF0;
+    --muted: rgba(237, 238, 240, .64);
+    --border: rgba(255, 255, 255, .16);
+    --accent: #57E39B;
+    --accent-ink: #EAFFF4;
+    --note-bg: #13251C;
+    --warn: #F0906A;
+    --warn-bg: #38281E;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-block: 32px 64px;
+  padding-inline: 20px;
+}
+
+header.masthead {
+  padding-block: 8px 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.brand {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.25;
+  margin: 14px 0 6px;
+  letter-spacing: -.015em;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 40px 0 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  letter-spacing: -.01em;
+}
+
+h2:first-of-type { border-top: 0; padding-top: 0; }
+
+h3 {
+  font-size: 16px;
+  margin: 24px 0 6px;
+}
+
+p, li { color: var(--ink); }
+
+.lede {
+  color: var(--muted);
+  font-size: 17px;
+  margin-top: 0;
+}
+
+.updated {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+
+ul, ol { padding-inline-start: 22px; }
+li { margin-bottom: 7px; }
+
+a { color: var(--accent); }
+a:hover { text-decoration: none; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .9em;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.note, .warn {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 20px 0;
+}
+
+.note { background: var(--note-bg); }
+
+.warn {
+  background: var(--warn-bg);
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+.warn strong { color: var(--warn); }
+
+.note > :first-child, .warn > :first-child { margin-top: 0; }
+.note > :last-child, .warn > :last-child { margin-bottom: 0; }
+
+/* The card list on the index page. */
+.cards { display: grid; gap: 14px; margin-top: 28px; }
+
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.card:hover { border-color: var(--accent); }
+.card strong { display: block; font-size: 17px; color: var(--accent); margin-bottom: 4px; }
+.card span { color: var(--muted); font-size: 15px; }
+
+/* Definition-style rows for "what we collect". */
+dl { margin: 14px 0; }
+dt { font-weight: 650; margin-top: 16px; }
+dd { margin: 4px 0 0; color: var(--muted); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 15px;
+}
+
+th, td {
+  text-align: start;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  vertical-align: top;
+}
+
+th { background: var(--surface); font-weight: 650; }
+
+.scroller { overflow-x: auto; }
+
+footer.foot {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer.foot a { color: var(--accent); }
+
+.steps { counter-reset: step; list-style: none; padding-inline-start: 0; }
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-inline-start: 38px;
+  margin-bottom: 14px;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: 1px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 14px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 26px; }
+  .wrap { padding-block: 24px 48px; }
+}

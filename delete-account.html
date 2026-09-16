@@ -1,0 +1,192 @@
+<!doctype html>
+<!--
+  PrintIt — public account-deletion page.
+
+  WHY IT EXISTS. Google Play requires two routes to account deletion: one inside the app,
+  and one at a public URL that still works for somebody who has already uninstalled it.
+  This is the second one.
+
+  WHAT IT DELIBERATELY DOES NOT DO. It collects nothing — no form, no analytics, no cookies,
+  no fonts from a CDN, no script. A page whose entire purpose is "delete my data" must not
+  be the page that collects some. It also cannot delete anything by itself: deleting an
+  account requires an authenticated request, and a public page that claimed to do it would
+  be a way for a stranger to delete somebody else's account by typing their phone number.
+
+  ACCURACY NOTE. Everything below was read out of
+  printit-backend/supabase/functions/delete-my-account/index.ts and migration
+  0062_a_customer_may_erase_themselves.sql. The three-hour window, the sign-in-to-cancel
+  behaviour and the four refusal reasons are what the code actually does. If that code
+  changes, this page is wrong until somebody updates it.
+
+  PLACEHOLDER STILL OPEN. Fill this before publishing:
+      [SUPPORT EMAIL]
+
+  FILLED 15 September 2026: entity name = PrintIt; last updated = 15 September 2026;
+  completion window = 30 days. Support WhatsApp +20 103 119 2395 is published in the
+  footer contact line.
+
+  The entity name appears exactly once, in the footer line.
+-->
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete your PrintIt account</title>
+<meta name="description" content="How to delete your PrintIt account, what is removed, and what is kept.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <a class="brand" href="index.html">PrintIt</a>
+  <h1>Delete your account</h1>
+  <p class="updated">Last updated: 15 September 2026</p>
+  <p class="lede">
+    You can delete your PrintIt account and the personal data attached to it. You do not
+    need the app installed to ask. This page explains how, what disappears, and what we
+    keep.
+  </p>
+</header>
+
+<h2>Option 1 &mdash; in the app</h2>
+
+<ol class="steps">
+  <li>Open PrintIt and sign in.</li>
+  <li>Tap <strong>You</strong> at the bottom of the screen.</li>
+  <li>Scroll to the bottom and tap <strong>Delete account</strong>.</li>
+  <li>Read what will be deleted, then confirm.</li>
+</ol>
+
+<h2>Option 2 &mdash; by email, if you have uninstalled the app</h2>
+
+<p>Email <a href="mailto:[SUPPORT EMAIL]">[SUPPORT EMAIL]</a> from the email address on your
+PrintIt account, or tell us the mobile number you signed up with, and ask us to delete your
+account.</p>
+
+<p>We will check that the request really comes from the account holder before we delete
+anything &mdash; otherwise anyone who knew your number could close your account. We aim to
+complete these requests within 30 days.</p>
+
+<h2>What happens when you confirm</h2>
+
+<p>Nothing is destroyed at the moment you tap the button. Here is the actual sequence:</p>
+
+<ol class="steps">
+  <li><strong>A three-hour countdown starts.</strong> Your account is marked for deletion.</li>
+  <li><strong>Any order that no shop has accepted yet is cancelled immediately.</strong>
+      You are not left with orders running against an account that is closing.</li>
+  <li><strong>You are signed out on every device.</strong></li>
+  <li><strong>Three hours later, the erasure happens automatically</strong> and cannot be
+      reversed. A job checks every minute, so it is not left sitting.</li>
+</ol>
+
+<div class="note">
+  <p><strong>Changed your mind? Just sign in again.</strong></p>
+  <p>Your login keeps working during those three hours, on purpose. Signing back in before
+  the window closes cancels the deletion and restores the account exactly as it was. That is
+  the whole undo &mdash; there is nothing else to do and nobody to email.</p>
+</div>
+
+<div class="warn">
+  <p><strong>Once the three hours are up, this is permanent.</strong> We cannot restore an
+  account, an order history, or a document after the erasure has run. There is no backup we
+  can pull you out of.</p>
+</div>
+
+<h2>What is deleted</h2>
+
+<ul>
+  <li><strong>Your sign-in itself</strong> &mdash; the email address or mobile number you used,
+      your password, and the link to Google or Apple if you signed in with one. The login stops
+      existing.</li>
+  <li><strong>Your name and phone number.</strong></li>
+  <li><strong>Every saved address</strong>, in full: the street, flat, floor, area, city, your
+      delivery notes, the receiver's name and phone number if you added one, and the map
+      coordinates.</li>
+  <li><strong>Every document you uploaded.</strong> Each file is put on a queue the moment
+      the erasure runs, and removed from our file storage. The queue is deliberate: if a
+      deletion fails, it is retried until the file is actually gone, rather than being
+      recorded as deleted while it sits there.</li>
+  <li><strong>Photos of your packaged orders.</strong></li>
+  <li><strong>All of your notifications.</strong></li>
+  <li><strong>Any comment you wrote in a rating.</strong></li>
+  <li><strong>Draft orders you never submitted</strong>, and the files attached to them. No
+      shop ever saw them, so nothing is kept.</li>
+  <li><strong>Your abuse-prevention counter.</strong></li>
+  <li><strong>Your identity on any "please deliver to my area" request.</strong> The request
+      itself is kept as a signal of where we should expand, but it is detached from you and
+      the pin is blurred to roughly 11&nbsp;km &mdash; enough to name a district, not a
+      building.</li>
+</ul>
+
+<h2>What is kept, and why</h2>
+
+<p>Orders that actually happened are kept as business and accounting records. They are kept
+<em>without you</em>. Specifically:</p>
+
+<ul>
+  <li><strong>The order is detached from your account.</strong> The link to you is removed
+      and the order is stamped with the date its customer was deleted.</li>
+  <li><strong>The delivery address is overwritten</strong> with the literal text
+      <code>[erased]</code>, and the coordinates are rounded to roughly 11&nbsp;km.</li>
+  <li><strong>The file names are replaced</strong>, and the files themselves are gone.</li>
+  <li><strong>What was charged and what the shop was paid</strong> stays, because that is the
+      record of money that moved.</li>
+  <li><strong>Card payment records are stripped down to the money.</strong> We keep only the
+      transaction id, amount, currency, whether it succeeded, whether it was refunded or
+      voided, and the date &mdash; and we stamp the record with the time it was redacted.
+      Anything else the payment processor sent us, including any billing details, is thrown
+      away.</li>
+  <li><strong>Your star rating stays; your comment goes.</strong> The number of stars is the
+      shop's record of work it did, and deleting it would quietly rewrite that shop's history.
+      It carries no name.</li>
+  <li><strong>The order's status history is kept</strong>, with your identity removed from it.</li>
+</ul>
+
+<p>In short: a delivered order becomes an amount of money, a date, a list of print settings,
+and nothing that points at a person.</p>
+
+<h2>When we cannot delete straight away</h2>
+
+<p>The app will tell you which of these applies, and you can come back and try again once it
+is resolved:</p>
+
+<ul>
+  <li><strong>An order is being printed or delivered right now.</strong> A shop has accepted
+      it and may already have paper committed to it. We can close the account once it
+      reaches you.</li>
+  <li><strong>An order cannot be cancelled automatically.</strong> In practice this means a
+      card order you have already paid for, because we cannot return money to an account that
+      no longer exists. Email us and we will sort it out.</li>
+  <li><strong>A delivered order has not been paid for</strong> &mdash; a cash-on-delivery
+      order where the money was never collected.</li>
+  <li><strong>We owe you a refund.</strong> That has to be settled before the account goes,
+      for the same reason: we cannot pay a refund to an account that has been erased.</li>
+</ul>
+
+<p>If you have a print shop or staff login rather than a customer account, the app will refuse
+and ask you to contact us &mdash; those are closed by hand.</p>
+
+<h2>Getting a copy of your data instead</h2>
+
+<p>If you want to see what we hold rather than destroy it, email
+<a href="mailto:[SUPPORT EMAIL]">[SUPPORT EMAIL]</a> and ask. The
+<a href="privacy.html">privacy policy</a> lists every category we store and how long each
+one lasts.</p>
+
+<footer class="foot">
+  <!-- The only place on this page that names the legal entity. -->
+  <p>PrintIt is operated by <strong>PrintIt</strong>. Contact:
+     <a href="mailto:[SUPPORT EMAIL]">[SUPPORT EMAIL]</a>, or WhatsApp
+     <strong>+20 103 119 2395</strong>.</p>
+  <p>
+    <a href="index.html">PrintIt legal</a> &middot;
+    <a href="privacy.html">Privacy Policy</a> &middot;
+    <a href="terms.html">Terms of Service</a>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>
