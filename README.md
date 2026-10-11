@@ -17,7 +17,7 @@ data" should not itself be collecting any.
 
 ---
 
-## Status: two placeholders left
+## Status: every placeholder is filled
 
 Five of the seven placeholders were filled on 15 September 2026:
 
@@ -29,30 +29,12 @@ Five of the seven placeholders were filled on 15 September 2026:
 | `[MINIMUM AGE]` | **13** |
 | `[GOVERNING LAW AND COURTS]` | **Egyptian law, courts of Cairo** (`terms.html`, section 14) |
 
-**Two are still open, and both are waiting on the same thing — the domain.**
+The last two were closed on 11 October 2026:
 
-### `[SUPPORT EMAIL]` — 14 lines, 24 occurrences
-
-| File | Lines |
+| Placeholder | What happened |
 |---|---|
-| `index.html` | 9 *(comment)*, 56 |
-| `privacy.html` | 10 *(comment)*, 266, 282, 291, 302 |
-| `terms.html` | 6 *(comment)*, 147, 201 |
-| `delete-account.html` | 22 *(comment)*, 63, 174, 181 |
-
-### `[REGISTERED ADDRESS]` — 6 lines, 6 occurrences
-
-| File | Lines |
-|---|---|
-| `privacy.html` | 10 *(comment)*, 43, 304 |
-| `terms.html` | 6 *(comment)*, 43, 203 |
-
-Lines marked *(comment)* are inside the HTML comment at the top of each file. They are
-notes to you and nobody sees them, but replace them too so the checklist stays honest.
-
-Each `[SUPPORT EMAIL]` in the body appears **twice on the same line** — once inside
-`href="mailto:..."` and once as the visible link text. Replace both, or the link will point
-somewhere different from what it reads.
+| `[SUPPORT EMAIL]` | **hamza2008ismail@gmail.com**, on all four pages (text and `mailto:`) |
+| `[REGISTERED ADDRESS]` | There are no company papers yet, so no address is published. The operator line in `privacy.html` and `terms.html` reads **"PrintIt, Egypt"**, and the Contact sections have no postal line. An HTML comment marks the spot: add the registered address when the commercial registration exists. |
 
 ### The one command that finds what is left
 
@@ -62,7 +44,7 @@ Run this from anywhere, including `C:\Windows\System32`:
 Select-String -Path 'E:\Hamza\printit-legal\*.html' -Pattern '\[[A-Z][A-Z /]*\]' -CaseSensitive
 ```
 
-Right now it prints 18 lines. When it prints nothing, the pages are ready to publish.
+It prints nothing. If it ever prints a line again, fix that before pushing.
 
 > **Do not drop `-CaseSensitive`.** Without it PowerShell matches lowercase too, and the
 > command starts reporting `[erased]` in `delete-account.html` as if it were a placeholder.
@@ -112,8 +94,8 @@ To see it:
 git -C E:\Hamza\printit-legal log --oneline
 ```
 
-There is **no remote**. Nothing has been pushed anywhere. Everything below is yours to run
-when you decide to.
+Its remote is `https://github.com/Hamza8Ismail/printit-legal` (public), pushed on
+11 October 2026. Steps 2-4 below are done; they are kept as a record.
 
 ### 2. Decide whether this goes public
 
@@ -217,8 +199,7 @@ in the footer of the deletion page. It is the same number the app already ships 
 It is written as plain text, not as a `wa.me` link, so these pages still load nothing from
 anywhere except `style.css`.
 
-The WhatsApp number does **not** replace `[SUPPORT EMAIL]`. Both belong on the pages; one
-is filled and one is still waiting on the domain.
+The WhatsApp number does **not** replace the support email. Both are on the pages.
 
 ---
 
