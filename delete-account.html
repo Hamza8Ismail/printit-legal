@@ -21,7 +21,8 @@
   FILLED 15 September 2026: entity name = PrintIt; last updated = 15 September 2026;
   completion window = 30 days. Support WhatsApp +20 103 119 2395 is published in the
   footer contact line.
-  FILLED 11 October 2026: support email = hamza2008ismail@gmail.com.
+  FILLED 11 October 2026: support email = hamza2008ismail@gmail.com; last updated =
+  11 October 2026 (corrected against the code).
 
   The entity name appears exactly once, in the footer line.
 -->
@@ -39,7 +40,7 @@
 <header class="masthead">
   <a class="brand" href="index.html">PrintIt</a>
   <h1>Delete your account</h1>
-  <p class="updated">Last updated: 15 September 2026</p>
+  <p class="updated">Last updated: 11 October 2026</p>
   <p class="lede">
     You can delete your PrintIt account and the personal data attached to it. You do not
     need the app installed to ask. This page explains how, what disappears, and what we
@@ -59,8 +60,7 @@
 <h2>Option 2 &mdash; by email, if you have uninstalled the app</h2>
 
 <p>Email <a href="mailto:hamza2008ismail@gmail.com">hamza2008ismail@gmail.com</a> from the email address on your
-PrintIt account, or tell us the mobile number you signed up with, and ask us to delete your
-account.</p>
+PrintIt account and ask us to delete your account.</p>
 
 <p>We will check that the request really comes from the account holder before we delete
 anything &mdash; otherwise anyone who knew your number could close your account. We aim to
@@ -76,7 +76,8 @@ complete these requests within 30 days.</p>
       You are not left with orders running against an account that is closing.</li>
   <li><strong>You are signed out on every device.</strong></li>
   <li><strong>Three hours later, the erasure happens automatically</strong> and cannot be
-      reversed. A job checks every minute, so it is not left sitting.</li>
+      reversed. A job checks every minute, so it is not left sitting. Your files are then
+      removed from storage by a job that runs once a day.</li>
 </ol>
 
 <div class="note">
@@ -96,12 +97,11 @@ complete these requests within 30 days.</p>
 <h2>What is deleted</h2>
 
 <ul>
-  <li><strong>Your sign-in itself</strong> &mdash; the email address or mobile number you used,
-      your password, and the link to Google or Apple if you signed in with one. The login stops
-      existing.</li>
+  <li><strong>Your sign-in itself</strong> &mdash; your email address, your password if you set
+      one, and the link to Google if you signed in with it. The login stops existing.</li>
   <li><strong>Your name and phone number.</strong></li>
   <li><strong>Every saved address</strong>, in full: the street, flat, floor, area, city, your
-      delivery notes, the receiver's name and phone number if you added one, and the map
+      delivery notes, the receiver's name and phone number, and the map
       coordinates.</li>
   <li><strong>Every document you uploaded.</strong> Each file is put on a queue the moment
       the erasure runs, and removed from our file storage. The queue is deliberate: if a
@@ -129,12 +129,14 @@ complete these requests within 30 days.</p>
       and the order is stamped with the date its customer was deleted.</li>
   <li><strong>The delivery address is overwritten</strong> with the literal text
       <code>[erased]</code>, and the coordinates are rounded to roughly 11&nbsp;km.</li>
-  <li><strong>The file names are replaced</strong>, and the files themselves are gone.</li>
+  <li><strong>The file names are replaced</strong>, and the files are queued for removal
+      from storage.</li>
   <li><strong>What was charged and what the shop was paid</strong> stays, because that is the
       record of money that moved.</li>
   <li><strong>Card payment records are stripped down to the money.</strong> We keep only the
-      transaction id, amount, currency, whether it succeeded, whether it was refunded or
-      voided, and the date &mdash; and we stamp the record with the time it was redacted.
+      transaction id, amount, currency, date, the payment processor's status flags (such as
+      succeeded, pending, refunded or voided) and its reference for our merchant account
+      &mdash; and we stamp the record with the time it was redacted.
       Anything else the payment processor sent us, including any billing details, is thrown
       away.</li>
   <li><strong>Your star rating stays; your comment goes.</strong> The number of stars is the
@@ -143,8 +145,10 @@ complete these requests within 30 days.</p>
   <li><strong>The order's status history is kept</strong>, with your identity removed from it.</li>
 </ul>
 
-<p>In short: a delivered order becomes an amount of money, a date, a list of print settings,
-and nothing that points at a person.</p>
+<p>In short: a kept order has no name, phone number, street address or link to an account.
+Separately, we keep a record of the deletion itself: your former account ID and the storage
+paths of the deleted files, which include their file names. That record has no set
+expiry.</p>
 
 <h2>When we cannot delete straight away</h2>
 
@@ -171,8 +175,8 @@ and ask you to contact us &mdash; those are closed by hand.</p>
 
 <p>If you want to see what we hold rather than destroy it, email
 <a href="mailto:hamza2008ismail@gmail.com">hamza2008ismail@gmail.com</a> and ask. The
-<a href="privacy.html">privacy policy</a> lists every category we store and how long each
-one lasts.</p>
+<a href="privacy.html">privacy policy</a> describes what we store and how long we keep
+it.</p>
 
 <footer class="foot">
   <!-- The only place on this page that names the legal entity. -->

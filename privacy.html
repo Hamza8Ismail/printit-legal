@@ -10,7 +10,8 @@
   reply window = 30 days; minimum age = 13. Support WhatsApp +20 103 119 2395 is published
   in section 9, Contact.
 
-  FILLED 11 October 2026: support email = hamza2008ismail@gmail.com. There is no registered
+  FILLED 11 October 2026: last updated = 11 October 2026 (corrected against the code);
+  support email = hamza2008ismail@gmail.com. There is no registered
   address yet: the operator line reads "PrintIt, Egypt" and section 9 has no postal line.
   Add the address to both when the commercial registration exists.
 
@@ -32,7 +33,7 @@
 <header class="masthead">
   <a class="brand" href="index.html">PrintIt</a>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: 15 September 2026</p>
+  <p class="updated">Last updated: 11 October 2026</p>
   <p class="lede">
     PrintIt takes documents you need printed, sends them to a print shop, and has the
     result delivered to you. This page says exactly what we hold, who can see it, and how
@@ -46,8 +47,9 @@
 <div class="note">
   <p><strong>The short version.</strong></p>
   <ul>
-    <li>We collect what is needed to print your document and get it to your door. Nothing else.</li>
-    <li>There is no advertising, no analytics, no tracking and no third-party SDK in the app.</li>
+    <li>We collect what we need to run your account, print and deliver your orders, and
+        remember your app settings.</li>
+    <li>There is no advertising, analytics or tracking software in the app.</li>
     <li>Your uploaded documents are deleted automatically once your order has been finished
         for 30 days. This is a scheduled job, not a promise to get round to it.</li>
     <li>A print shop cannot see your files, your file names or anything about you until it
@@ -72,16 +74,18 @@ about you and we do not collect anything from you before you sign up.</p>
 
   <dt>Your profile</dt>
   <dd>
-    Your name and your phone number, if you enter them, and the date your account was
-    created. Both the name and the phone number are optional as far as the database is
+    Your name and your phone number, if they have been provided, the date your account was
+    created, and your app settings (light or dark theme, and whether you want order
+    notifications). Both the name and the phone number are optional as far as the database is
     concerned; you may be asked for them at checkout so a delivery can actually reach you.
   </dd>
 
   <dt>Your saved addresses</dt>
   <dd>
     For each address you save: the label you gave it ("Home", "Campus"), the street, the
-    flat and floor, the area and city, any delivery note or landmark you wrote, the name and
-    phone number of someone else receiving it if you filled those in, and the exact map
+    flat and floor, the area and city, any delivery note or landmark you wrote, the
+    receiver's name and phone number (required; the receiver may be you or someone you
+    name), and the exact map
     coordinates of the point you picked. Coordinates are required &mdash; we cannot quote or
     deliver to an address without a real point on the map.
   </dd>
@@ -149,23 +153,30 @@ about you and we do not collect anything from you before you sign up.</p>
       app misbehaves.</li>
   <li><strong>No advertising identifiers</strong>, no ad networks, and we do not sell or rent
       anything about you to anybody, for any purpose.</li>
-  <li><strong>No cookies on these pages.</strong> This page, and the other two on this site,
-      set nothing, load no fonts from anywhere else, and run no scripts.</li>
+  <li><strong>No cookies on these pages.</strong> The four pages on this site set no
+      cookies, load no fonts from anywhere else, and run no scripts.</li>
   <li><strong>No contacts, photos, or files other than the ones you pick.</strong> When you
       choose a document, your phone hands us that one file.</li>
 </ul>
 
-<h3>Two things that do leave your phone, which you should know about</h3>
+<h3>Three things that do leave your phone, which you should know about</h3>
 
 <ul>
   <li><strong>Your location, if you let the app use it.</strong> The app can ask your phone
       for your current position, purely to centre the map on you when you are choosing a
-      delivery point. You can refuse and pan the map yourself. A position only reaches us
-      if you save it as an address or attach it to an order.</li>
+      delivery point. You can refuse and pan the map yourself. The point the map is on is
+      sent to our server to check whether we deliver there; that check stores nothing. A
+      position is only kept if you save it as an address, attach it to an order, or ask us
+      to serve that area.</li>
   <li><strong>Map images.</strong> The map is drawn with tiles from
       <code>openstreetmap.org</code>. Loading them means your device contacts that service
       directly, which, like any website you visit, sees your IP address. We do not send them
       anything about you or your order.</li>
+  <li><strong>A password check, if you sign up with email.</strong> Before your account is
+      created, the app checks your new password against a list of leaked passwords at
+      <code>haveibeenpwned.com</code>. It sends only the first five characters of a scrambled
+      (SHA-1) form of the password, never the password itself; that service sees your IP
+      address.</li>
 </ul>
 
 <h2>3. Who else sees any of this</h2>
@@ -193,8 +204,10 @@ go around the screen.</p>
   <tr>
     <td><strong>After it accepts</strong></td>
     <td>
-      Your documents, so it can print them, and the delivery address, so it can be delivered.
-      Your profile name, phone number and email address are not handed over through the app.
+      Your documents and their file names, the delivery address with its map point, and the
+      receiver's name and phone number, so it can print and deliver your order. It keeps this
+      for as long as it holds the order, after delivery too. It also sees a random account
+      ID, but not your profile name, profile phone number or email address.
     </td>
   </tr>
   <tr>
@@ -218,8 +231,8 @@ order. Your star rating is recorded against the job, not against a shop you name
       data described above because that is where it physically lives. They do not use it.</li>
   <li><strong>Us.</strong> A small number of PrintIt staff can look at an account or an order
       when they are dealing with a support problem or an unpaid balance.</li>
-  <li><strong>Nobody else.</strong> We would disclose something if we were legally required
-      to, and not otherwise.</li>
+  <li><strong>Nobody else</strong>, apart from the map and password-check services described
+      above. We would disclose something if we were legally required to, and not otherwise.</li>
 </ul>
 
 <h2>4. How long we keep things</h2>
@@ -244,11 +257,16 @@ reprinted if something went wrong with it.</p>
 
 <ul>
   <li><strong>Your account, profile and addresses:</strong> until you delete your account.</li>
-  <li><strong>Your orders:</strong> kept as business and accounting records. If you delete
-      your account, they stay but you are removed from them &mdash; see the deletion page for
-      exactly what that leaves behind.</li>
-  <li><strong>Notifications and rating comments:</strong> until you delete your account, at
-      which point they go.</li>
+  <li><strong>Orders you submitted:</strong> kept as business and accounting records. If you
+      delete your account, they stay but you are removed from them &mdash; see the deletion
+      page for exactly what that leaves behind.</li>
+  <li><strong>Drafts you never submitted:</strong> deleted, with their files, after 7 days
+      untouched.</li>
+  <li><strong>Packaging photos, notifications and rating comments:</strong> until you delete
+      your account, at which point they go.</li>
+  <li><strong>Payment records and the record of an account deletion:</strong> kept, with no
+      set expiry.</li>
+  <li><strong>Database backups:</strong> encrypted, and each one expires after 90 days.</li>
 </ul>
 
 <h2>5. Security</h2>
@@ -269,8 +287,8 @@ email <a href="mailto:hamza2008ismail@gmail.com">hamza2008ismail@gmail.com</a> a
 
 <ul>
   <li><strong>See what we hold about you.</strong> Ask, and we will send it to you.</li>
-  <li><strong>Correct it.</strong> Your name, phone and addresses are editable in the app.
-      Anything else, ask us.</li>
+  <li><strong>Correct it.</strong> You can add and remove saved addresses in the app. For
+      anything else, including your name and phone number, ask us.</li>
   <li><strong>Delete your account and your data.</strong> You can do this yourself.
       <a href="delete-account.html">The deletion page</a> explains the steps, what is
       removed, and what is kept.</li>
